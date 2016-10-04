@@ -10,4 +10,8 @@ class Robot
     @database.results_as_hash = true
     @id = task_params["id"] if task_params["id"]
   end
+
+  def save
+    @database.execute("INSERT INTO tasks (name, city, state, department) VALUES (?, ?, ?, ?);", @name, @city, @state, @department)
+  end
 end
