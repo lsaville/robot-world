@@ -15,21 +15,22 @@ class RobotWorldApp < Sinatra::Base
     erb :index
   end
 
+  #See form to make new robot
+  get '/robots/new' do
+    erb :new
+  end
+
 #See one robot
   get '/robots/:id' do
     @robots = Robot.find(id)
     erb :show
   end
 
-#See form to make new robot
-  get '/robots/new' do
-    erb :new
-  end
 
 #submit the new robot
   post '/robots' do
     robot = Robot.new(params[:robot])
-    task.save
+    robot.save
     redirect '/robots'
   end
 
