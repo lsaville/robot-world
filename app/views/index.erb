@@ -2,15 +2,26 @@
 
 <% @robots.each do |robot| %>
   <div class="text-center">
-    <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+    <h3><a class="link-style" href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
     <img class="img-thumbnail" src="https://robohash.org/<%= robot.name %>.png">
     <p><%= robot.city %></p>
     <p><%= robot.state %></p>
     <p><%= robot.department %></p>
-    <a href="/robots/<%= robot.id %>/edit">Edit</a>
-    <form action="/robots/<%= robot.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="delete">
-    </form>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Action <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="link-style" href="/robots/<%= robot.id %>/edit">Edit</a></li>
+        <li>
+          <a href="#">
+            <form action="/robots/<%= robot.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete">
+            </form>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 <% end %>
