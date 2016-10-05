@@ -45,6 +45,11 @@ class Robot
     Robot.find(id)
   end
 
+  def self.destroy(id)
+    database.execute("DELETE FROM robots
+                      WHERE id = ?;", id)
+  end
+
   def self.database
     database = SQLite3::Database.new('db/robot_world_development.db')
     database.results_as_hash = true
