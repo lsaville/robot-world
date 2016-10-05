@@ -22,7 +22,7 @@ class RobotWorldApp < Sinatra::Base
 
 #See one robot
   get '/robots/:id' do
-    @robots = Robot.find(id)
+    @robot = Robot.find(params[:id])
     erb :show
   end
 
