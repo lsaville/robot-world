@@ -1,9 +1,12 @@
-<a href='/robots'>Robot Index</a>
+<div class="text-center">
 
-<h1><%= @robot.name %></h1>
+  <h1><%= @robot.name %></h1>
 
-<p><%= @robot.city %></p>
+  <img class="img-thumbnail" src="https://robohash.org/<%= @robot.name %>.png">
 
-<p><%= @robot.state %></p>
+  <p><%= @robot.city %></p>
 
-<p><%= @robot.department %></p>
+  <p><%= @robot.state %></p>
+
+  <p><%= @robot.department %></p>
+</div>
