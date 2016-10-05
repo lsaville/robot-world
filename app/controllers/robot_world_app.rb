@@ -26,7 +26,6 @@ class RobotWorldApp < Sinatra::Base
     erb :show
   end
 
-
 #submit the new robot
   post '/robots' do
     robot = Robot.new(params[:robot])
@@ -43,7 +42,7 @@ class RobotWorldApp < Sinatra::Base
 #submit the new robot info
 
   put '/robots/:id' do |id|
-    Robot.update(id.to_i, params[:task])
+    Robot.update(id.to_i, params[:robot])
     redirect "/robots/#{id}"
   end
 
